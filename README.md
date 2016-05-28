@@ -10,6 +10,8 @@ This will be done in a number of parts:
 
  - A look at the basic machinery common to all encryption systems.
  - A look at some famous (and infamous) encryption systems used through history.
+   In addition to seeing how they work, we'll also take a look at how they
+   failed and/or went obsolete.
  - The mystiko gem, written in ruby, that serves as a simple demonstration of
    the principles of data encryption.
  - A challenge. For as long as secret codes have existed, secret code breakers
