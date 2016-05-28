@@ -12,6 +12,9 @@ This will be done in a number of parts:
  - A look at some famous (and infamous) encryption systems used through history.
  - The mystiko gem, written in ruby, that serves as a simple demonstration of
    the principles of data encryption.
+ - A challenge. For as long as secret codes have existed, secret code breakers
+   have tried to defeat them. Coming soon, see if you can decode a secret
+   message created by the above ruby code. Prizes, if any, to be determined!
 
 ## Installation
 
