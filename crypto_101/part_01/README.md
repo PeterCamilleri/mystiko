@@ -35,6 +35,39 @@ secure manner. Some of these include:
 So, just what does protecting mean in this context? In each case above, there
 is information. That information is plainly visible to the originator of the
 information. It needs to be made plainly visible to the intended recipient of
-that information. It needs to be kept out of the hands who are not authorized
-to possess or use that information.
+that information. It needs to be kept out of the hands of those who are not
+authorized to possess or use that information.
+
+Let's see a simple, but very common example scenario:
+
+    You wish to make an online purchase with a credit card.
+    You have your credit card information.
+    The vendor needs that information to process your purchase.
+    Criminals must not gain access to that information.
+
+So, keeping an open mind, let's see how this can be done.
+
+#### Use a private communication channel.
+
+The oldest way to keep unauthorized access to information is to only allow
+access by authorized users. Secret couriers would carry messages of great
+importance. In modern times, it was not uncommon for a battle field to be criss
+crossed with telegraph and telephone lines. Automated Teller Machines connect
+to the bank using special leased line connections that only connect the
+machine to the bank and nothing else.
+
+In our scenario, this is not an option because your connection to the vendor
+is over the public Internet and not a private network.
+
+#### Use an obscure communication channel.
+
+
+#### Protect the data with Encryption.
+
+
+## Epic Failure #1 - The long distance phone network.
+
+( https://en.wikipedia.org/wiki/Blue_box )
+
+
 
