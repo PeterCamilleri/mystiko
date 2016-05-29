@@ -38,6 +38,13 @@ information. It needs to be made plainly visible to the intended recipient of
 that information. It needs to be kept out of the hands of those who are not
 authorized to possess or use that information.
 
+What does Wikipedia say about encryption?
+
+_In cryptography, encryption is the process of encoding messages or information
+in such a way that only authorized parties can read it. Encryption does not of
+itself prevent interception, but denies the message content to the interceptor._
+(https://en.wikipedia.org/wiki/Encryption)
+
 Let's see a simple, but very common example scenario:
 
     You wish to make an online purchase with a credit card.
@@ -59,10 +66,11 @@ roosts with messages attached to their tiny legs.
 
 So what can go wrong? Lots! The secret courier can be bribed or intercepted.
 The message can be stolen or switched out with a false message. The wires can
-be cut or tapped. Even the poor little pigeons can be blasted out of the sky!
+be cut or tapped. Even the poor little pigeons can be blasted out of the sky or
+hunted down by enemy (angry?) birds of prey.
 
-In our scenario, this is not an option because your connection to the vendor
-is over the public Internet and not a private network.
+In our scenario, a private communication channel is not an option because your
+connection to the vendor is over the public Internet and not a private network.
 
 #### Use an obscure communication channel.
 
@@ -91,19 +99,53 @@ and several did. The most famous being that of a toy whistle given away with a
 breakfast cereal that could generate the sound needed to put the distant
 exchange into a mode where it would accept commands.
 
-This lead to the rise of the phone phreak culture and the infamous blue box
+This lead to the rise of the "phone phreak" culture and the infamous blue box
 phone hacking device. The security of the long distance phone system was
 compromised and the telcos all lost out on some champagne, caviar and lobster.
 
 They did make changes though. Starting with heavy handed legal attacks, the
 issue was not resolved until they switched to "out of band signaling". A fancy
-way of saying that they putting their sensitive data onto a private
+way of saying that they began putting their sensitive data onto a private
 communications channel. Where it should have been all along.
 
-An look at the interesting blue box is at: ( https://en.wikipedia.org/wiki/Blue_box )
+A look at the interesting blue box is at: ( https://en.wikipedia.org/wiki/Blue_box )
 
 #### Protect the data with Encryption.
 
+So it should be clear by now that data that is encrypted is much more than data
+that is merely obscured. So what is required for data to be encrypted?
 
+1) Even given the details of the method of encryption, decoding the message
+should be unfeasible for unauthorized parties. For example, the source code
+of the encryption program can be publicly published without giving up the
+coded messages' contents. If the source code is hidden or proprietary, then to
+at least some extent, the designer is relying on obscurity.
 
+1b) The algorithm or program source code should be openly published. This is
+a corollary of the first point. Code that is obscure is weak. Open code is
+subject to criticism and fault analysis by many talented programmers.
+Proprietary code is not and is thus suspect. Quality encryption must _not_ rely
+on obscurity.
 
+2) The process of creating the encoded message shall accept two inputs: the
+message to be encoded and a encoding key.
+
+3) The process of decoding the encoded message shall also accepts two inputs:
+the encoded message and a decoding key.
+
+4) Depending on the method of encryption employed, the encoding and decoding
+keys may be the same (symmetrical key encryption) or different (asymmetrical
+key encryption).
+
+5) The key used to decode the messages shall be kept secret. The encoding key
+may be public unless it is the same as the decoding key. In that case it too
+must be kept secret.
+
+## Conclusion
+
+This concludes the first part. Subsequent parts will examine how actual
+encryption systems work. All share the five characteristics listed above.
+
+## Homework/Quiz
+
+There is no homework assigned. There will be no quiz on Monday.
