@@ -34,6 +34,11 @@ task :reek do |t|
   `reek --no-color lib > reek.txt`
 end
 
+desc "Run an IRB Session with mystiko loaded."
+task :console do
+  system "ruby irbt.rb local"
+end
+
 desc "What version of mystiko is this?"
 task :vers do |t|
   puts
