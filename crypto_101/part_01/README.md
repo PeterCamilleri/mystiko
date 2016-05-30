@@ -98,7 +98,7 @@ telco signaling and customer calls.
 To obscure things, the details of the exact pitches and command sequences were
 not documented. It was a disaster in the making. First off, details of the
 scheme were published followed by a clumsy attempt to suppress the information.
-This involved literally company goons going to college libraries and ripping
+This literally involved company goons going to college libraries and ripping
 out the offending pages from books. Secondly, anyone could stumble across the
 tones, and several did. The most famous being that of a toy whistle given away
 with a breakfast cereal that could generate the sound needed to put the distant
