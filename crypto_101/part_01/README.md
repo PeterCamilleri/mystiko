@@ -90,17 +90,18 @@ _**Epic Failure #1 - The long distance phone network.**_
 In a long distance telephone network, phone calls are routed between telephone
 company (telco) exchanges. The telco has to send this routing information in
 a cost effective and secure manner. The solution arrived at was to use tones
-as proxies for the commands and numeric data and send these down the phone line
-while it was idle. This allowed the same phone circuit to be used for both
+as proxies for the commands and numeric data and send these down the phone line.
+This was similar in concept to the standard "touch tone" dialing but with
+non-standard tones. This allowed the same phone circuit to be used for both
 telco signaling and customer calls.
 
 To obscure things, the details of the exact pitches and command sequences were
 not documented. It was a disaster in the making. First off, details of the
 scheme were published followed by a clumsy attempt to suppress the information.
-This involved literally going to college libraries and ripping out the
-offending pages from books. Secondly, anyone could stumble across the tones,
-and several did. The most famous being that of a toy whistle given away with a
-breakfast cereal that could generate the sound needed to put the distant
+This involved literally company goons going to college libraries and ripping
+out the offending pages from books. Secondly, anyone could stumble across the
+tones, and several did. The most famous being that of a toy whistle given away
+with a breakfast cereal that could generate the sound needed to put the distant
 exchange into a mode where it would accept commands.
 
 This lead to the rise of the "phone phreak" culture and the infamous blue box
