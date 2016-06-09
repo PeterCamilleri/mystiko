@@ -1,27 +1,4 @@
-# Welcome to Cyrpto 101
-
-This series of lessons is a basic level primer on encryption. The target
-audience is programmers curious about how encryption works but not in love
-with pages of confusing mathematical scribblings. It is not really solid
-enough to use as a basis for those wishing to delve deeply into the field
-but may still serve as a starting point for such a path.
-
-Our examination of encryption will look at a number of topics.
-
-- The theory behind how encryption works.
-- An examination of actual encryption systems that are deployed in the field.
-- A look at some examples of epic failures through the years.
-- We will build up a number of simple example encryption system in the ruby
-language. The sample code is written to be portable but is tested under
-version 2.1.6
-
-Keep in my that this primer will keep things on a basic level. As a result
-we will avoid digging into the leading edge of security apparatus. The NSA
-most certainly has nothing to fear here.
-
-Finally, it is a goal to keep the tone light and informal.
-
-## Encryption Basics
+# Security Basics
 
 There are many occasions that require moving and/or storing information in a
 secure manner. Some of these include:
@@ -73,17 +50,30 @@ hunted down by enemy (angry?) birds of prey.
 
 In our example scenario, a private communication channel is not an option
 because your connection to the vendor is over the public Internet and not a
-private network.
+private network. You could of course, place your information in a pouch and
+send it to the vendor via a bonded courier service, but that would be slow and
+expensive.
 
 #### (B) Use an obscure communication channel.
 
 Sometimes, designers attempt to secure communications by using an obscure or
-undocumented communication method. There's a special name for that kind of
-engineering. It's called "bad".
+undocumented communication method. In this approach, it is hoped that complex,
+convoluted and above all undocumented communications will be enough to ensure
+security. There's a special name for that kind of engineering. It's called
+"bad".
 
 I have no example to show this in action for our sample scenario, because no
-one would be foolish enough to try it. Or would they... It seems that there is
-an excellent example from history:
+one would be foolish enough to try it. Or would they... We could imagine a
+scenario where you take a picture of your credit card, creating a file, called
+say "card.png", then rename the file to "song.mp3" before emailing the file as
+an attachment to the vendor. The vendor knows to detach the file and rename it
+to "Jethro Clampett.png" so he can open the file and see the needed information.
+There you go, we gots demm dere see cure itty!
+
+As silly as this example is, it might even work. Unless someone intercepts the
+email and takes more than 11 seconds examining the attachment.
+
+On reflection, it seems that there is also an excellent example from history:
 
 _**Epic Failure #1 - The long distance phone network.**_
 
@@ -97,16 +87,17 @@ telco signaling and customer calls.
 
 To obscure things, the details of the exact pitches and command sequences were
 not documented. It was a disaster in the making. First off, details of the
-scheme were published followed by a clumsy attempt to suppress the information.
-This literally involved company goons going to college libraries and ripping
-out the offending pages from books. Secondly, anyone could stumble across the
-tones, and several did. The most famous being that of a toy whistle given away
-with a breakfast cereal that could generate the sound needed to put the distant
-exchange into a mode where it would accept commands.
+scheme were accidentally published followed by a clumsy attempt to suppress the
+information. This involved company goons going to college libraries and
+literally ripping out the offending pages from books. Secondly, anyone could
+stumble across the tones, and several did. The most famous being that of a toy
+whistle given away with a breakfast cereal that could generate the sound needed
+to put the distant exchange into a mode where it would accept commands.
 
-This lead to the rise of the "phone phreak" culture and the infamous blue box
-phone hacking device. The security of the long distance phone system was
-compromised and the telcos all lost out on some champagne, caviar and lobster.
+All of this lead to the rise of the "phone phreak" culture and the infamous
+blue box phone hacking device. The security of the long distance phone system
+was compromised and telco executives all lost out on a great deal of
+champagne, caviar and lobster.
 
 They did make changes though. Starting with heavy handed legal attacks, the
 issue was not resolved until they switched to "out of band signaling". A fancy
@@ -118,53 +109,59 @@ A look at the interesting blue box is at: ( https://en.wikipedia.org/wiki/Blue_b
 
 #### (C) Protect the data with Encryption.
 
-So it should be clear by now that data that is encrypted is much more than data
+It should be clear by now that data that is encrypted is much more than data
 that is merely obscured. So what is required for data to be encrypted?
 
-1) Even given the details of the method of encryption, decoding the message
+1. Even given the details of the method of encryption, decoding the message
 should be unfeasible for unauthorized parties. For example, the source code
 of the encryption program can be publicly published without giving up the
-coded messages' contents.
-
-1b) This is a corollary of the first point. The algorithm or program source
+coded messages' contents. Corollary: The algorithm or program source
 code should be openly published.  Open source code is subject to criticism and
 fault analysis by many talented programmers. Anytime that encryption code is
-kept secret it means either that the code is weak, or that lawyers patrol the
-cubicles, or both.
+kept secret it means either that the code is weak, or that lawyers/morons
+control the workplace, or both.
 
-2) The process of creating the encoded message shall accept two inputs: the
+2. The process of creating the encoded message shall accept two inputs: the
 message to be encoded and an encoding key.
 
-3) The process of decoding the encoded message shall also accepts two inputs:
+3. The process of decoding the encoded message shall also accepts two inputs:
 the encoded message and a decoding key.
-
-4) Depending on the method of encryption employed, the encoding and decoding
+Depending on the method of encryption employed, the encoding and decoding
 keys may be the same (symmetrical key encryption) or different (asymmetrical
 key encryption).
 
-5) The key used to decode the messages shall be kept secret. The encoding key
+4. The key used to decode the messages shall be kept secret. The encoding key
 may be public unless it is the same as the decoding key. In that case, it too
 must be kept secret.
 
-With these characteristics, we can finally make our purchase. We can send our
-credit card information to the vendor because only he has the decoding key
-needed to read the message. Just how he gets that key is matter for later
-study. Should any criminal element intercept our purchase data, it is of no
-use to them because they do not have the decoding key.
+Let's take our first, simplified view of how encryption moves data:
+
+![Encryption Data Flow](encrypt_001.png)
+
+In this diagram, the encode and decode steps take place in the secure locations
+of your computer and the vendor's computer respectively. The cryptic data is
+transmitted openly on the public network.
+
+We can finally make our purchase. We can send our credit card information to
+the vendor because only he has the decoding key needed to read the message.
+Just how he gets that key is matter for later study. Should any criminal
+element intercept our (cryptic) purchase data, it is of no use to them because
+they do not have the decoding key.
 
 At last, Internet commerce may proceed. Stock options for everyone!
 
 ## Conclusion
 
-This concludes the first part. In it we learned:
+This concludes the first part. Let's summarize:
 
-- Encryption is needed to keep society functioning. The simple example is but
-one of a billion uses of encryption each day.
+- Security is not a matter of having things to hide from the light of day.
+Security is needed to keep society functioning. The simple example above is but
+one of a billion uses of encryption to provide security employed each day.
 - There is no security in obscurity.
 - Open software is always to be preferred to proprietary software.
 - Engineering choices should be made on the basis of engineering principles,
 not expediency or politics.
-- Messing up encryption can be embarrassing and expensive.
+- Messing up security can be embarrassing and expensive.
 
 If it sounds like "encryption is hard", it is. That is why this is only a
 introduction to the topic. Hopefully you will enjoy the peek into how the
