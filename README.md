@@ -3,20 +3,39 @@
 The word mystik&oacute; is from the Greek language and means secret. Keeping
 secrets safe from unauthorized eyes is the very core purpose of encryption.
 
-Over the next few months, this code repo will grow to contain an introduction
-to encryption aimed at those who are curious about how it works.
+The mystik&oacute; gem is a modified Vernam cypher. The classic approach to
+this type of cypher is to have a random string of data of the same length as
+the plain text data. The two streams of data are combined using the XOR
+operation. To recover the original data, the cypher data is again combined with
+the random data with the XOR operation. After one use, the random data is
+never reused.
 
-This will be done in a number of parts:
+This works because the XOR operator exhibits the following identity:
 
- - A look at the basic machinery common to all encryption systems.
- - A look at some famous (and infamous) encryption systems used through history.
-   In addition to seeing how they work, we'll also take a look at how they
-   failed and/or went obsolete.
- - The mystiko gem, written in ruby, that serves as a simple demonstration of
-   the principles of data encryption.
- - A challenge. For as long as secret codes have existed, secret code breakers
-   have tried to defeat them. Coming soon, see if you can decode a secret
-   message created by the above ruby code. Prizes, if any, to be determined!
+```ruby
+(A ^ B ^ B) == A
+```
+This is the result of the fact that:
+```ruby
+(X ^ X) == 0
+```
+and
+```ruby
+(X ^ 0) == X
+```
+
+Excepting "end run" code cracking (getting the data before/after encryption or
+getting a copy of the random data) or incompetence (poor quality or reusing the
+random data) this code can be shown to be unbreakable.
+
+It is also very cumbersome to use. It requires that both parties have access to
+large amounts of high quality random data that can only be used once. It
+requires that random data to be kept secret and that these random data remain
+synchronized.
+
+#### References
+
+- https://en.wikipedia.org/wiki/One-time_pad
 
 ## Installation
 
