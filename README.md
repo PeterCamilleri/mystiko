@@ -27,6 +27,8 @@ TODO: Write usage instructions here
 
 ## Princples of Operation
 
+#### The Vernam Cypher
+
 The mystik&oacute; gem is a modified Vernam cypher. The classic approach to
 this type of cypher is to have a random string of data of the same length as
 the plain text data. The two streams of data are combined using the XOR
@@ -57,9 +59,22 @@ large amounts of high quality random data that can only be used once. It
 requires that random data to be kept secret and that these random data remain
 synchronized.
 
+#### The Pseudo-Random Shortcut
+
+Work in progress.
+
+#### The Scrambled Vernam Cypher
+
+Work in progress.
+
 #### References
 
-- https://en.wikipedia.org/wiki/One-time_pad
+- One time pads and the Vernam cypher https://en.wikipedia.org/wiki/One-time_pad
+- Random number generation https://en.wikipedia.org/wiki/Random_number_generation
+- The Mersenne twister  https://en.wikipedia.org/wiki/Mersenne_Twister
+- The sysrandom gem https://github.com/cryptosphere/sysrandom
+- Testing random number generators https://en.wikipedia.org/wiki/TestU01 and
+http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
 
 
 ## Contributing
