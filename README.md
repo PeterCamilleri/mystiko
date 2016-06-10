@@ -3,6 +3,30 @@
 The word mystik&oacute; is from the Greek language and means secret. Keeping
 secrets safe from unauthorized eyes is the very core purpose of encryption.
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'mystiko'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install mystiko
+
+The mystiko gem itself will soon be found at: ( https://rubygems.org/gems/mystiko )
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Princples of Operation
+
 The mystik&oacute; gem is a modified Vernam cypher. The classic approach to
 this type of cypher is to have a random string of data of the same length as
 the plain text data. The two streams of data are combined using the XOR
@@ -37,27 +61,6 @@ synchronized.
 
 - https://en.wikipedia.org/wiki/One-time_pad
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mystiko'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mystiko
-
-The mystiko gem itself will soon be found at: ( https://rubygems.org/gems/mystiko )
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
