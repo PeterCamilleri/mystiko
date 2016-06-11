@@ -72,7 +72,7 @@ Work in progress.
 - One time pads and the Vernam cypher https://en.wikipedia.org/wiki/One-time_pad
 - Random number generation https://en.wikipedia.org/wiki/Random_number_generation
 - The Mersenne twister  https://en.wikipedia.org/wiki/Mersenne_Twister
-- The sysrandom gem https://github.com/cryptosphere/sysrandom
+- The Random library http://ruby-doc.org/core-2.2.0/Random.html
 - Testing random number generators https://en.wikipedia.org/wiki/TestU01 and
 http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
 
