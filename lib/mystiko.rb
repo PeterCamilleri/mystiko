@@ -20,5 +20,4 @@ class Mystiko
     @filler.rand(256)
   end
 
-
 end
