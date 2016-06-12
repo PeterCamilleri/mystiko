@@ -23,4 +23,34 @@ class MystikoTester < Minitest::Test
     assert_equal(Fixnum, Mystiko::Generator.new("foo").rand(256).class)
   end
 
+  def test_input_processing
+    mystiko = Mystiko.new
+
+    args = { in_str: "ABC", key: "fubar" }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(16, mystiko.window)
+
+    args = { in_file: "tests/input.txt", key: "fubar" }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(16, mystiko.window)
+
+    args = { in_str: "ABC", key: "fubar", window: 24 }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(24, mystiko.window)
+
+    args = { in_file: "tests/input.txt", key: "fubar", window: 24  }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(24, mystiko.window)
+
+    args = { key: "fubar" }
+    assert_raises { mystiko.process_inputs(args) }
+
+    args = { in_str: "ABC" }
+    assert_raises { mystiko.process_inputs(args) }
+  end
+
 end
