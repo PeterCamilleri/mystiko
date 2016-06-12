@@ -1,1 +1,9 @@
-0 total warnings
+lib/mystiko/decrypt.rb -- 1 warning:
+  [7]:UnusedParameters: Mystiko#decrypt has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+lib/mystiko/encrypt.rb -- 1 warning:
+  [7]:UnusedParameters: Mystiko#encrypt has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+lib/mystiko/inputs.rb -- 1 warning:
+  [7]:UnusedParameters: Mystiko#process_inputs has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+lib/mystiko/outputs.rb -- 1 warning:
+  [7]:UnusedParameters: Mystiko#process_outputs has unused parameter 'args' [https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md]
+4 total warnings
