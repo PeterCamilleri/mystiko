@@ -12,11 +12,11 @@ class MystikoTester < Minitest::Test
   include MinitestVisible
 
   def test_for_existence
-    assert_equal(Module, Mystiko.class)
+    assert_equal(Class, Mystiko.class)
   end
 
   def test_for_filler_bytes
-    assert_equal(Fixnum, Mystiko.filler_byte.class)
+    assert_equal(Fixnum, Mystiko.new.filler_byte.class)
   end
 
 

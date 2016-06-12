@@ -1,6 +1,6 @@
 # coding: utf-8
 
-module Mystiko
+class Mystiko
   #The version of this encryption library.
   VERSION = "0.0.1"
 end
