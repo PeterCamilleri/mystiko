@@ -14,10 +14,10 @@ class Mystiko
 
   #Perform common input argument processing.
   def process_inputs(args)
-    @input     = (args[:in_str]                                ||
-                  ((name = args[:in_file]) && (IO.read(name))) ||
-                  fail("An input must be specified")
-                 ).bytes.to_a
+    @input     = args[:in_str]                                ||
+                 ((name = args[:in_file]) && (IO.read(name))) ||
+                 fail("An input must be specified")
+
 
     @generator = args[:generator]                              ||
                  ((key = args[:key]) && Generator.new(key))    ||
