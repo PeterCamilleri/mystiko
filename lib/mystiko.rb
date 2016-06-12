@@ -2,7 +2,15 @@
 
 require_relative "mystiko/version"
 
-# The Mystiko module is where all the data encryption classes reside.
+# The Mystiko module is where all the data encryption code resides.
 module Mystiko
-  # Your code goes here...
+
+  @filler = Random.new
+
+  #Get a decoy filler byte.
+  def self.filler_byte
+    @filler.rand(256)
+  end
+
+
 end
