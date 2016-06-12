@@ -9,6 +9,9 @@ class Mystiko
   # The sliding window size.
   attr_reader :window
 
+  # The source of simulated entropy
+  attr_reader :generator
+
   #Perform common input argument processing.
   def process_inputs(args)
     @input     = (args[:in_str]                                ||
@@ -23,6 +26,4 @@ class Mystiko
     @window    = args[:window] || 16
   end
 
-
 end
-

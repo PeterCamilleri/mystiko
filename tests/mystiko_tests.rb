@@ -30,23 +30,54 @@ class MystikoTester < Minitest::Test
     mystiko.process_inputs(args)
     assert_equal([65, 66, 67], mystiko.input)
     assert_equal(16, mystiko.window)
+    assert_equal(Mystiko::Generator, mystiko.generator.class)
 
     args = { in_file: "tests/input.txt", key: "fubar" }
     mystiko.process_inputs(args)
     assert_equal([65, 66, 67], mystiko.input)
     assert_equal(16, mystiko.window)
+    assert_equal(Mystiko::Generator, mystiko.generator.class)
 
     args = { in_str: "ABC", key: "fubar", window: 24 }
     mystiko.process_inputs(args)
     assert_equal([65, 66, 67], mystiko.input)
     assert_equal(24, mystiko.window)
+    assert_equal(Mystiko::Generator, mystiko.generator.class)
 
-    args = { in_file: "tests/input.txt", key: "fubar", window: 24  }
+    args = { in_file: "tests/input.txt", key: "fubar", window: 24 }
     mystiko.process_inputs(args)
     assert_equal([65, 66, 67], mystiko.input)
     assert_equal(24, mystiko.window)
+    assert_equal(Mystiko::Generator, mystiko.generator.class)
+
+    args = { in_str: "ABC", generator: Random.new(42) }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(16, mystiko.window)
+    assert_equal(Random, mystiko.generator.class)
+
+    args = { in_file: "tests/input.txt", generator: Random.new(42) }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(16, mystiko.window)
+    assert_equal(Random, mystiko.generator.class)
+
+    args = { in_str: "ABC", generator: Random.new(42), window: 24 }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(24, mystiko.window)
+    assert_equal(Random, mystiko.generator.class)
+
+    args = { in_file: "tests/input.txt", generator: Random.new(42), window: 24 }
+    mystiko.process_inputs(args)
+    assert_equal([65, 66, 67], mystiko.input)
+    assert_equal(24, mystiko.window)
+    assert_equal(Random, mystiko.generator.class)
 
     args = { key: "fubar" }
+    assert_raises { mystiko.process_inputs(args) }
+
+    args = { generator: Random.new(42) }
     assert_raises { mystiko.process_inputs(args) }
 
     args = { in_str: "ABC" }
