@@ -1,8 +1,11 @@
 # coding: utf-8
 
+require_relative "mystiko/encrypt"
+require_relative "mystiko/decrypt"
+require_relative "mystiko/inputs"
 require_relative "mystiko/version"
 
-# The Mystiko module is where all the data encryption code resides.
+# The Mystiko class is where all the data encryption code resides.
 class Mystiko
 
   #Set up an encryption object.
