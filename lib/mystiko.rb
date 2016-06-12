@@ -2,7 +2,9 @@
 
 require_relative "mystiko/encrypt"
 require_relative "mystiko/decrypt"
+require_relative "mystiko/generator"
 require_relative "mystiko/inputs"
+require_relative "mystiko/outputs"
 require_relative "mystiko/version"
 
 # The Mystiko class is where all the data encryption code resides.

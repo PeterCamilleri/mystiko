@@ -19,5 +19,8 @@ class MystikoTester < Minitest::Test
     assert_equal(Fixnum, Mystiko.new.filler_byte.class)
   end
 
+  def test_for_gnerated_bytes
+    assert_equal(Fixnum, Mystiko::Generator.new("foo").rand(256).class)
+  end
 
 end
