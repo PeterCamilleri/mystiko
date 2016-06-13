@@ -16,12 +16,11 @@ class Mystiko
   def process_inputs(args)
     @input     = args[:in_str]                                ||
                  ((name = args[:in_file]) && (IO.read(name))) ||
-                 fail("An input must be specified")
-
+                 fail("An input must be specified.")
 
     @generator = args[:generator]                              ||
                  ((key = args[:key]) && Generator.new(key))    ||
-                 fail("An key must be specified")
+                 fail("A key or generator must be specified.")
 
     @window    = args[:window] || 16
   end
