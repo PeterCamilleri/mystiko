@@ -4,6 +4,8 @@
 class Mystiko
 
   #Perform common output argument processing.
+  #<br>Returns
+  #* The output string.
   def process_outputs(args)
     @input, @generator, @window, @data = nil, nil, nil, nil
 
