@@ -32,4 +32,11 @@ class MystikoTester < Minitest::Test
     assert_equal(expected, result)
   end
 
+  def test_some_decryption
+    plain     = "ABCDEFG Eric the half a bee."
+    cypher    = Mystiko.new.encrypt(in_str: plain,  key: "123")
+    recovered = Mystiko.new.decrypt(in_str: cypher, key: "123")
+    assert_equal(plain, recovered)
+  end
+
 end
