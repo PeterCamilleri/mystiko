@@ -1,6 +1,6 @@
 # coding: utf-8
 
-#Data decryption.
+#* decrypt.rb -- Data decryption.
 class Mystiko
 
   #Perform data decryption

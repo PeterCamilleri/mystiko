@@ -3,7 +3,7 @@
 require 'fibonacci_rng'
 require 'composite_rng'
 
-#The internal pseudo-random number generator.
+#* generator.rb -- The internal pseudo-random number generator.
 class Mystiko
 
   #A specialized variant of the composite pseudo RNG.

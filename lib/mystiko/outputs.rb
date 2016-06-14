@@ -1,6 +1,6 @@
 # coding: utf-8
 
-#Common output parameter processing.
+#* outputs.rb -- Common output parameter processing.
 class Mystiko
 
   #Access to the output instance variable

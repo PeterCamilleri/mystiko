@@ -1,6 +1,6 @@
 # coding: utf-8
 
-#Data encryption.
+#* encrypt.rb -- Data encryption.
 class Mystiko
 
   #Perform data encryption

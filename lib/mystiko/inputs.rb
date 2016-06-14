@@ -1,6 +1,6 @@
 # coding: utf-8
 
-#Common input parameter processing.
+#* inputs.rb -- Common input parameter processing.
 class Mystiko
 
   # The array of input bytes
