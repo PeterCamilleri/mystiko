@@ -42,10 +42,12 @@ This works because the XOR operator exhibits the following identity:
 (A ^ B ^ B) == A
 ```
 This is the result of the fact that:
+
 ```ruby
 (X ^ X) == 0
 ```
 and
+
 ```ruby
 (X ^ 0) == X
 ```
