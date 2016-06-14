@@ -1,0 +1,109 @@
+#!/usr/bin/env ruby
+#
+# Standalone execution of the Mystiko gem.
+#
+
+begin
+  require 'mystiko'
+rescue LoadError
+  require_relative '..\lib\mystiko'
+end
+
+require 'getoptlong'
+
+#Display help and exit.
+def help(message=nil)
+  puts "Mystiko version #{Mystiko::VERSION}"
+  puts
+
+  if message
+    puts message
+    puts
+  end
+
+  puts "Usage summary:"
+  puts
+  puts "$ mystiko <options>"
+  puts
+  puts "--help,    -h, -?            # Display this help message."
+  puts "--encrypt, -e                # Data is to be encrypted."
+  puts "--decrypt, -d                # Data is to be decrypted."
+  puts "--input,   -i <input data>   # Specify the input data string."
+  puts "--read,    -r <file name>    # Specify the input data file name."
+  puts "--write,   -w <file name>    # Specify the input data file name."
+  puts "--key,     -k <key data>     # Specify the key data string."
+  puts
+  puts "Notes:"
+  puts " - A command option and a key are always required."
+  puts " - Data input defaults to STDIN."
+  puts " - Data output defaults to STDOUT."
+  puts " - If -r is specified, -i is ignored."
+  puts " - String data may be optionally enclosed in \" ... \" "
+  exit
+end
+
+#Read data from stdin.
+def grab_stdin
+  result = ""
+
+  while (line = gets)
+    result << line
+  end
+
+  result
+end
+
+opts = GetoptLong.new(
+  [ "--help",    "-h", "-?", GetoptLong::NO_ARGUMENT ],
+  [ "--encrypt", "-e", GetoptLong::NO_ARGUMENT ],
+  [ "--decrypt", "-d", GetoptLong::NO_ARGUMENT ],
+  [ "--input",   "-i", GetoptLong::REQUIRED_ARGUMENT ],
+  [ "--read",    "-r", GetoptLong::REQUIRED_ARGUMENT ],
+  [ "--write",   "-w", GetoptLong::REQUIRED_ARGUMENT ],
+  [ "--key",     "-k", GetoptLong::REQUIRED_ARGUMENT ],
+  [ "--test",    "-t", GetoptLong::NO_ARGUMENT ])
+
+options_found = false
+parameters = {}
+command = nil
+use_stdin = use_stdout = true
+
+begin
+  opts.each do |opt, arg|
+    case opt
+    when "--help"
+      help
+    when "--encrypt"
+      fail "Only one encrypt or decrypt may be specified." if command
+      command = :encrypt
+    when "--decrypt"
+      fail "Only one encrypt or decrypt may be specified." if command
+      command = :decrypt
+    when "--input"
+      parameters[:in_str] = arg
+      use_stdin = false
+    when "--read"
+      parameters[:in_file] = arg
+      use_stdin = false
+    when "--write"
+      parameters[:out_file] = arg
+      use_stdout = false
+    when "--key"
+      parameters[:key] = arg
+    when "--test"
+      parameters[:filler] = 32
+    end
+
+    options_found = true
+  end
+
+  help unless options_found
+  fail "A key must be specified" unless parameters[:key]
+  fail "Either encrypt or decrypt must be specified." unless command
+  parameters[:in_str] = grab_stdin if use_stdin
+  result = Mystiko.new.send(command, parameters)
+  print result if use_stdout
+
+rescue => err
+  help "Error: #{err.message}"
+end

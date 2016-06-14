@@ -15,7 +15,7 @@ class Mystiko
     @input = @generator = @window = @fill_value = nil   # Cover our tracks.
 
     if (name = args[:out_file])
-      IO.write(name, @output)
+      IO.write(name, @output, mode: "wb")
     elsif (out_str = args[:out_str])
       out_str << @output
     end
