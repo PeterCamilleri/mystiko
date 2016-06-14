@@ -23,6 +23,9 @@ class Mystiko
                   fail("A key or generator must be specified.")
 
     @window     = args[:window] || 16
+
+    #The filler value is for testing purposes only. It should
+    #not be specified when secure operation is desired.
     @fill_value = args[:filler]
   end
 
