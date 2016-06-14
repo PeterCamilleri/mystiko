@@ -7,6 +7,7 @@ class Mystiko
   def decrypt(args={})
     process_inputs(args)
 
+    process_outputs(args)
   end
 
 end

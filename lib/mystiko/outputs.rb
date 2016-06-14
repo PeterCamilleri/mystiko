@@ -24,4 +24,3 @@ class Mystiko
   end
 
 end
-

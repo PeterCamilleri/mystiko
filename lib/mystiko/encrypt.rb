@@ -20,16 +20,30 @@ class Mystiko
     @data   = @input[0...@window]
 
     (@window - (@offset = @data.length)).times do
-      @data << @filler.call
+      @data << filler_byte
     end
   end
 
   #Do the actual encryption work.
   def do_encryption
+    result, processed = [], 0
+
+    while processed < @length
+      index = @generator.rand(@window)
+      result << (@data.delete_at(index) ^ @generator.rand(256))
+
+      @data << (@input[@offset] || filler_byte)
+      @offset += 1
+
+      processed += 1 if (index + processed) < @length
+    end
+
+    @output = result.pack("C*")
   end
 
   #Get the cypher (aka encrypted) output data set up.
   def setup_cypher_output
+    @data = @offset = nil   # Just cleanup.
   end
 
 end
