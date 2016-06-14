@@ -23,7 +23,49 @@ The mystiko gem itself is found at: ( https://rubygems.org/gems/mystiko )
 
 ## Usage
 
-Mystik&oacute; is both a ruby gem and a command line utility.
+Mystik&oacute; is both a ruby gem and a command line utility. In order to work
+with the encryption engine two things must be done:
+
+ - An instance must be created. This is easily done with the new method.
+ - Encryption is done with the encrypt method and appropriate parameters.
+ - Decryption is done with the decrypt method and appropriate parameters.
+
+The parameters take the form of classical named/hashed parameters. Supported
+parameters include:
+
+ - in_str: "value" -- a string of input data.
+ - in_file: "name" -- the name of a file of input data. Overrides in_str.
+ - key: "value" -- the key to use for processing
+ - generator: object -- a seeded, pseudo-random number generator. Overrides key.
+ - out_str: "value" -- the string output is appended to this string.
+ - out_file: "name" -- the name of a file of output data. Overrides out_str.
+ - window: value -- the size, in bytes, of the processing window.
+
+The methods encrypt and decrypt both also return the resultant string of data.
+
+The command line utility displays the following message if started with no
+arguments or the "--help", "-h", or "-?" options.
+
+    Mystiko version 0.1.0
+
+    Usage summary:
+
+    $ mystiko <options>
+
+    --help,    -h, -?            # Display this help message.
+    --encrypt, -e                # Data is to be encrypted.
+    --decrypt, -d                # Data is to be decrypted.
+    --input,   -i <input data>   # Specify the input data string.
+    --read,    -r <file name>    # Specify the input data file name.
+    --write,   -w <file name>    # Specify the input data file name.
+    --key,     -k <key data>     # Specify the key data string.
+
+    Notes:
+     - A command option and a key are always required.
+     - Data input defaults to STDIN.
+     - Data output defaults to STDOUT.
+     - If -r is specified, -i is ignored.
+     - String data may be optionally enclosed in " ... "
 
 ## Princples of Operation
 
