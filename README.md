@@ -19,11 +19,11 @@ Or install it yourself as:
 
     $ gem install mystiko
 
-The mystiko gem itself will soon be found at: ( https://rubygems.org/gems/mystiko )
+The mystiko gem itself is found at: ( https://rubygems.org/gems/mystiko )
 
 ## Usage
 
-TODO: Write usage instructions here
+Mystik&oacute; is both a ruby gem and a command line utility.
 
 ## Princples of Operation
 
