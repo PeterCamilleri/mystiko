@@ -23,4 +23,13 @@ class MystikoTester < Minitest::Test
     assert_equal(Fixnum, Mystiko::Generator.new("foo").rand(256).class)
   end
 
+  def test_some_encryption
+    result = Mystiko.new.encrypt(in_str: "ABC", key: "123", filler: 0).bytes
+    expected = [107, 156, 100,  81,  10,  28, 141,
+                 21, 124, 206, 247,  57, 162,  99,
+                 13, 145, 184,  17,   8,  25]
+
+    assert_equal(expected, result)
+  end
+
 end

@@ -12,7 +12,7 @@ class Mystiko
   #<br>Returns
   #* The output string.
   def process_outputs(args)
-    @input = @generator = @window = nil   # Cover our tracks.
+    @input = @generator = @window = @fill_value = nil   # Cover our tracks.
 
     if (name = args[:out_file])
       IO.write(name, @output)
@@ -20,7 +20,7 @@ class Mystiko
       out_str << @output
     end
 
-    (_, @output = @output, nil)[0]        # Return output and erase it.
+    (_, @output = @output, nil)[0]    # Return output and erase it.
   end
 
 end

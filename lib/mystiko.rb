@@ -17,7 +17,7 @@ class Mystiko
 
   #Get a decoy filler byte.
   def filler_byte
-    @filler.rand(256)
+    @fill_value || @filler.rand(256)
   end
 
 end
