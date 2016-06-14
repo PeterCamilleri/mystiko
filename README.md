@@ -3,6 +3,11 @@
 The word mystik&oacute; is from the Greek language and means secret. Keeping
 secrets safe from unauthorized eyes is the very core purpose of encryption.
 
+This gem is only intended for educational purposes and should not be used in
+serious data security applications.
+
+Any use for unlawful purposes is strictly forbidden.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -39,7 +44,7 @@ parameters include:
  - generator: object -- a seeded, pseudo-random number generator. Overrides key.
  - out_str: "value" -- the string output is appended to this string.
  - out_file: "name" -- the name of a file of output data. Overrides out_str.
- - window: value -- the size, in bytes, of the processing window.
+ - window: value -- the size, in bytes, of the shuffling window.
 
 The methods encrypt and decrypt both also return the resultant string of data.
 
@@ -105,11 +110,39 @@ synchronized.
 
 #### The Pseudo-Random Shortcut
 
-Work in progress.
+Given that large quantities of random data are bothersome to deal with, it was
+only natural that someone would start taking short-cuts. In this case, the
+one-time use random data was replaced by a pseudo-random data generator (PRNG).
+This transforms the Vernam cypher from unbreakable to laughably weak. Why?
+
+ - Any PRNG used in this way, requires an initial seed value. This seed value
+is effectively the key of the cypher. To crack the code, the attacker only
+needs to compute the seed value.
+ - Many messages start with a known sequence of bytes. A header if you will.
+These known bytes make it possible know what values were generated during the
+encryption process. This in turn allows the internal state of the PRNG to be
+modeled, greatly reducing the number of seed values that must be tested.
+ - Once a sequence of random values is known, it is often easy to determine
+what values will follow. At this point, the code is broken.
+
+The problem with the Vernam cypher is that it only maps input symbols to
+output symbols. The order of the symbols is not changed. With one-use truly
+random data, this is not a problem. Knowledge of a few random values tells
+us nothing about the values to follow. With a PRNG, they tell us a very great
+deal.
 
 #### The Scrambled Vernam Cypher
 
-Work in progress.
+To avoid the problems of the classical Vernam cypher, mystik&oacute; makes one
+significant change: The PRNG not only maps input symbols to output symbols, it
+also performs a controlled shuffle on those symbols.
+
+To recover data, in addition to anti-mapping the symbols, we need to perform a
+controlled anti-shuffle of the data.
+
+This data shuffling denies any would-be attacker knowledge of the order of the
+input data. Thus even with standard message headers, the content of the
+original message is no longer relevant.
 
 #### References
 
@@ -119,13 +152,13 @@ Work in progress.
 - The Random library http://ruby-doc.org/core-2.2.0/Random.html
 - Testing random number generators https://en.wikipedia.org/wiki/TestU01 and
 http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
-
+- Random key generator http://randomkeygen.com/ The 256 bit WEP keys work especially well.
 
 ## Contributing
 
-Creating a good introduction to encryption is quite an undertaking. For
-this reason, any input is most welcomed. There are two basic plans by which
-this can be accomplished.
+Creating any encryption system is quite an undertaking. For this reason,
+any input is most welcomed. There are two basic plans by which this can
+be accomplished.
 
 #### Plan A
 
