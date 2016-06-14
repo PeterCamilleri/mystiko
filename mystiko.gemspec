@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.platform      = Gem::Platform::RUBY
-  spec.required_ruby_version = '>=1.9.3'
+  spec.required_ruby_version = '>=2.1.0'
 
   spec.add_runtime_dependency 'fibonacci_rng', ">= 1.1.1"
   spec.add_runtime_dependency 'composite_rng', ">= 0.1.0"
