@@ -9,11 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Peter Camilleri"]
   spec.email         = ["peter.c.camilleri@gmail.com"]
 
-#  spec.summary       = "A introduction to the world of encryption."
-#  spec.description   = "A brief primer on the fundamentals of encryption."
-
-  spec.summary       = "A temp place holder."
-  spec.description   = "A temp place holder. Work in progress."
+  spec.summary       = "A simple data security system."
+  spec.description   = "An example of a simple data security system."
 
   spec.homepage      = "http://teuthida-technologies.com/"
   spec.license       = "MIT"
