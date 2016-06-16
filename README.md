@@ -72,16 +72,17 @@ arguments or the "--help", "-h", or "-?" options.
      - If -r is specified, -i is ignored.
      - String data may be optionally enclosed in " ... "
 
-## Princples of Operation
+## Principles of Operation
 
 #### The Vernam Cypher
 
-The mystik&oacute; gem is a modified Vernam cypher. The classic approach to
-this type of cypher is to have a random string of data of the same length as
-the plain text data. The two streams of data are combined using the XOR
-operation. To recover the original data, the cypher data is again combined with
-the random data with the XOR operation. After one use, the random data is
-never reused.
+The mystik&oacute; gem is a modified Vernam cypher. The Vernam cypher works
+by taking a stream of input symbols and mapping them to output symbols. This
+mapping obscures the original data. The classic approach to this type of cypher
+is to have a random string of data of the same length as the plain text data.
+The two streams of data are combined using the XOR operation. To recover the
+original data, the cypher data is again combined with the random data with the
+XOR operation. After one use, the random data is never reused.
 
 This works because the XOR operator exhibits the following identity:
 
@@ -134,15 +135,20 @@ deal.
 #### The Scrambled Vernam Cypher
 
 To avoid the problems of the classical Vernam cypher, mystik&oacute; makes one
-significant change: The PRNG not only maps input symbols to output symbols, it
-also performs a controlled shuffle on those symbols.
+significant change: The Scrambled Vernam Cypher first performs a PRNG
+controlled shuffle on the symbols followed by a mapping of input symbols to
+output symbols.
 
-To recover data, in addition to anti-mapping the symbols, we need to perform a
-controlled anti-shuffle of the data.
+To recover data, the Scrambled Vernam Cypher decryption routine performs an
+anti-mapping of the symbols back to their original values followed by a
+controlled anti-shuffle of the data back to its original order.
 
 This data shuffling denies any would-be attacker knowledge of the order of the
 input data. Thus even with standard message headers, the content of the
-original message is no longer relevant.
+original message is (hopefully) no longer relevant.
+
+It remains to be seen if this is indeed the case. Comments, ideas,
+observations, and thoughts are welcomed. See below for contributing.
 
 #### References
 
