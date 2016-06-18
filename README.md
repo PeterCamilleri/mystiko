@@ -32,6 +32,9 @@ Mystik&oacute; is both a ruby gem and a command line utility. In order to work
 with the encryption engine two things must be done:
 
  - An instance must be created. This is easily done with the new method.
+
+and then one of the following two options:
+
  - Encryption is done with the encrypt method and appropriate parameters.
  - Decryption is done with the decrypt method and appropriate parameters.
 
