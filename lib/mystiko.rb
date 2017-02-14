@@ -13,6 +13,7 @@ class Mystiko
   #Set up an encryption object.
   def initialize
     @filler = Random.new
+    @fill_value = nil
   end
 
   #Get a decoy filler byte.

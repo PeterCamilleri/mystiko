@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "A simple data security system."
   spec.description   = "An example of a simple data security system."
 
-  spec.homepage      = "http://teuthida-technologies.com/"
+  spec.homepage      = "https://github.com/PeterCamilleri/mystiko"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(tests)/}) }
@@ -20,13 +20,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.platform      = Gem::Platform::RUBY
-  spec.required_ruby_version = '>=2.1.0'
+  spec.required_ruby_version = '>= 2.1.0'
 
-  spec.add_runtime_dependency 'fibonacci_rng', ">= 1.1.1"
-  spec.add_runtime_dependency 'composite_rng', ">= 0.1.0"
+  spec.add_runtime_dependency 'fibonacci_rng', "~> 1.1"
+  spec.add_runtime_dependency 'composite_rng', "~> 0.1"
 
-  spec.add_development_dependency "bundler", "~> 1.11"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency 'minitest_visible', ">= 0.1.0"
-  spec.add_development_dependency 'mini_readline', ">= 0.4.8"
+  spec.add_development_dependency "rake", "~> 12.0"
+  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency 'minitest', "~> 5.7"
+  spec.add_development_dependency 'minitest_visible', "~> 0.1"
+  spec.add_development_dependency 'rdoc', "~> 5.0"
+
 end
