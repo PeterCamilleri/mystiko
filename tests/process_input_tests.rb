@@ -3,13 +3,9 @@
 require_relative '../lib/mystiko'
 gem              'minitest'
 require          'minitest/autorun'
-require          'minitest_visible'
 
 #Test the monkey patches applied to the Object class.
 class ProcessInputsTester < Minitest::Test
-
-  #Track mini-test progress.
-  include MinitestVisible
 
   def test_in_str_arg
     mystiko = Mystiko.new
